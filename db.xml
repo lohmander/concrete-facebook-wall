@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema version="0.3">
+	<table name="btFacebookWall">
+		<field name="bID" type="I">
+			<key />
+			<unsigned />
+		</field>
+		<field name="feed_url" type="X2">
+			<default value="" />
+		</field>
+        <field name="access_key" type="C" size="255">
+            <default value="" />
+        </field>
+	</table>
+</schema>
