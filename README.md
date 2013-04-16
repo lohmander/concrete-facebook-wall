@@ -15,10 +15,12 @@ Installation
 
 Configuration
 =
-The facebook URL need to be a "graph"-url. So for instance if you want Googles page, your url will be:
+You need an Facebook application ID and Secret. You can get it here: https://developers.facebook.com/apps
+
+The "Facebook URL" is the url to the graph "feed" of the page or user you want to display.
+
+For instance, if you'd like to display Google's feed, this would be the appropriate URL
 
     https://graph.facebook.com/google/feed
 
-You need an access token as well, you can generate one here: https://developers.facebook.com/tools/explorer/
-
-(Click on generate access token, you don't need any special permissions)
+Notice that the https:// is required.
