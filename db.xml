@@ -8,7 +8,10 @@
 		<field name="feed_url" type="X2">
 			<default value="" />
 		</field>
-        <field name="access_key" type="C" size="255">
+        <field name="app_id" type="C" size="255">
+            <default value="" />
+        </field>
+        <field name="app_secret" type="C" size="255">
             <default value="" />
         </field>
 	</table>

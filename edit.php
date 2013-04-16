@@ -6,6 +6,8 @@
 
     <?php echo $form->label('feed_url', t('Facebook URL')) ?>
     <?php echo $form->text('feed_url', $feed_url) ?>
-    <?php echo $form->label('access_key', t('Facebook Key')) ?>
-    <?php echo $form->text('access_key', $access_key) ?>
+    <?php echo $form->label('app_id', t('Application ID')) ?>
+    <?php echo $form->text('app_id', $app_id) ?>
+    <?php echo $form->label('app_secret', t('Application Secret')) ?>
+    <?php echo $form->text('app_secret', $app_secret) ?>
 </div>
