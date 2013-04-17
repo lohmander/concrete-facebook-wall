@@ -1,12 +1,13 @@
 <?php defined('C5_EXECUTE') or die(_("Access Denied."));
 
 Loader::model('facebook_wall', 'facebook_wall');
+
 class FacebookWallBlockController extends BlockController {
 
 	protected $btTable = "btFacebookWall";
 	protected $btInterfaceWidth = "350";
 	protected $btInterfaceHeight = "300";
-    private $fb;
+    protected $fb;
 
     public function on_start()  {
         $this->fb = new FacebookWallModel();
@@ -34,7 +35,6 @@ class FacebookWallBlockController extends BlockController {
             } else {
                 $message = $data->{'story'};
             }
-
 
             $o = array(
                 'name' => $data->{'from'}->{'name'},

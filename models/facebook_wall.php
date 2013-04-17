@@ -2,6 +2,7 @@
 
 class FacebookWallModel {
     const access_token_api_url = "https://graph.facebook.com/oauth/access_token";
+    protected $settings;
 
     function __construct(){
         $db = Loader::db();
@@ -24,6 +25,5 @@ class FacebookWallModel {
         $url = $this->getSetting('feed_url') . "?" . $this->getAccessToken();
         $json = file_get_contents($url);
         return json_decode($json);
-
     }
 }
