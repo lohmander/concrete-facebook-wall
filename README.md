@@ -5,10 +5,10 @@ Simple block to display contents of a Facebook wall of some sort.
 
 Installation
 ------------
-1. Put the files in blocks/facebook_wall/. (You'll have to create the facebook_wall folder)
+1. Put (clone) the files in the packages folder
 2. Log in to Concrete5
 3. Go to your dashboard
-4. Click on "Block types"
+4. Click on "Extend Concrete5"
 5. Click install on "Facebook Wall"
 6. Done, you can add the block where ever you want
 
