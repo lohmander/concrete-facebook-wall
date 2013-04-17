@@ -1,46 +1,22 @@
-<?php defined('C5_EXECUTE') or die(_("Access Denied."));
+<?php
+defined('C5_EXECUTE') or die(_("Access Denied."));
 
-class FacebookWallBlockController extends BlockController {
+class FacebookWallPackage extends Package {
+    protected $pkgHandle = 'facebook_wall';
+    protected $appVersionRequired = '5.5.0';
+    protected $pkgVersion = '0.1.0';
 
-	protected $btTable = "btFacebookWall";
-	protected $btInterfaceWidth = "350";
-	protected $btInterfaceHeight = "300";
-
-	public function getBlockTypeName() {
-		return t('Facebook Wall');
-	}
-
-	public function getBlockTypeDescription() {
-		return t('A simple block for displaying Facebook feeds.');
-	}
-
-    protected function getAccessToken() {
-        $db = Loader::db();
-
-        $app = $db->GetRow('SELECT * FROM btFacebookWall');
-        $url = sprintf('https://graph.facebook.com/oauth/access_token?client_id=%s&client_secret=%s&grant_type=client_credentials',
-                        $app['app_id'],
-                        $app['app_secret']);
-
-        return file_get_contents($url);
+    public function getPackageDescription() {
+        return t("Adds a block for displaying Facebook feeds anywhere on your site.");
     }
 
-    public function getFacebookStream($url) {
-        $url = $url . '?' . $this->getAccessToken();
-        $json = file_get_contents($url);
-        $content = json_decode($json);
-        $output = '';
+    public function getPackageName() {
+        return t("Facebook Wall");
+    }
 
-        foreach ($content->{'data'} as $data) {
-            if ($data->{'message'}) {
-                $message = $data->{'message'};
-            } else {
-                $message = $data->{'story'};
-            }
+    public function install() {
+        $pkg = parent::install();
 
-            $output .= sprintf('<p><strong>%s</strong><br>%s</p>', $data->{'from'}->{'name'}, $message);
-        }
-
-        return $output;
+        BlockType::installBlockTypeFromPackage('facebook_wall', $pkg);
     }
 }
